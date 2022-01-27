@@ -1,10 +1,10 @@
 from words import word_list
 
 """
-parachutes(5 wrong gueses)
+parachutes(5 wrong gueses) **Julie
     returns an image either wrong or right
     
-word(
+word( **marcus
     func: new_word  
     func: check_guess(
         if right: parachute
@@ -12,14 +12,14 @@ word(
                     
     )
 )
-display(
+display( **Rune
     func: word_tiles(get lenght of new word to create the tiles)
     func: word_display(
         display parachute and the current_word tiles
     )
     func: update
 )
-jumper(
+jumper( **lucas
     score = 5
     while loop
     func: display
@@ -27,5 +27,8 @@ jumper(
     func: check_guess
     
 )
+
+Dylan to arrange into files
+
 
 """
