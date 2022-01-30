@@ -1,4 +1,4 @@
-from words import word_list
+
 
 """
 parachutes(5 wrong gueses) **Julie
