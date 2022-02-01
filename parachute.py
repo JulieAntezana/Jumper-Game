@@ -11,7 +11,7 @@ class parachute:
         self.stages = []
 
     def parachute_stage(tries):
-        # An image can be called into the program using the parachute_display method with
+        # An image can be called into the program using the parachute_stage method with
         # the parameter of an index number for the number of tries remaining.
         # For example: self.parachute_stage(stages[4]) will return the last image in the array,
         # which is the full parachute with four tries remaining. When there are zero tries
