@@ -33,18 +33,18 @@ class word:
     
     def __init__(self):
         
-        self.users_guess=[]
-        self.new_word = random.choice(list)
+        self._users_guess=[]
+        self._new_word = random.choice(list)
         
     def check_guess(self, letter):       
-
-        if letter in self.users_guess:
+        #Tracks previous input
+        if letter in self._users_guess:
             return False
         else:
-            self.users_guess.append(letter)
+            self._users_guess.append(letter)
             
             
-        if letter in self.new_word:
+        if letter in self._new_word:
             pass #call the display funtion with the letters that would be updated
         
         else:
