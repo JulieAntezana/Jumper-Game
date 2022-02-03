@@ -19,17 +19,32 @@ class Display:
     
     """
     
-    def display(letters):
-        letters = "four"
-        guess = "o"
-        for letter in letters:
-            if guess in letter:
+    def __init__ (self, word):
+        self.word = word
+        # self.tiles = ""
+
+    # def make_tiles(self):
+        # letters = "four"
+        # guess = "o"
+        # for letter in self.word:
+        #     self.tiles += "_ "
+        
+            
+    # def display(self):
+    #     print(self.tiles)
+
+    def display(self, letter, update = False):
+        
+        # if not update:
+        #     self.display()
+        # else:
+
+        for i in self.word:
+            if i == letter:
                 print (letter, end =" ")
             else:
-                print ("_", end =" ") 
-        print("The end")
-    
-        
+                print ("_", end =" ")
+
 
     def guessed_letters(self):
         gletters=[]

@@ -1,4 +1,4 @@
-class parachute:
+class Parachute:
     # This class has the responsibility to provide a series of parachute
     # images for game.
     # There will be an image of a full parachute to begin the game.
@@ -10,7 +10,10 @@ class parachute:
 
         self.stages = []
 
-    def parachute_stage(tries):
+    def display_parachute(self, lives):
+        self.parachute_stages[lives]
+
+    def parachute_stage(self):
         # An image can be called into the program using the parachute_stage method with
         # the parameter of an index number for the number of tries remaining.
         # For example: self.parachute_stage(stages[4]) will return the last image in the array,
@@ -18,7 +21,7 @@ class parachute:
         # remaining, the program would call for self.parachute_stage(stages[0]) which would
         # return the skydiver with no parachute to end the game.
 
-        stages = ["""
+        self.stages = ["""
   X
  /|\\
  / \\
@@ -55,4 +58,5 @@ class parachute:
  / \\
 """
                   ]
-        return stages[tries]
+        
+        return self.stages

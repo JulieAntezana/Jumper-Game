@@ -12,7 +12,7 @@ import random
 )
 """
 
-class word:
+class Word:
     """
     
         init method:
@@ -39,13 +39,16 @@ class word:
     def check_guess(self, letter):       
         #Tracks previous input
         if letter in self._users_guess:
-            return False
+            return "guessed"
         else:
             self._users_guess.append(letter)
             
             
         if letter in self._new_word:
-            pass #call the display funtion with the letters that would be updated
+            return True
         
         else:
-            pass #call the display funtion setting update to false
+            return False
+
+    def get_word(self):
+        return self._new_word
