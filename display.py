@@ -19,15 +19,24 @@ class Display:
             self.tiles.append("_")
             
     def show(self):       
-        print(" ".join(self.tiles))
+        print("  ".join(self.tiles))
         
     def update(self, letter):
-        index = 0
-        for i in self.word_list:
-            if i == letter.lower():
-                index = self.word_list.index(letter)
-                
-        self.tiles[index] = letter
+        
+        if letter in self.word_list:
+            index = 0
+            for i in self.word_list:
+                if i == letter.lower():
+                    
+                    self.tiles[index] = letter
+                    index += 1
+                else:
+                    index += 1
+                    
+                    
+            
+        else:
+            print("failed attempt")
             
 
         
