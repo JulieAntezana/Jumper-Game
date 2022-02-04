@@ -18,7 +18,7 @@ class Display:
         for i in self.word:
             self.tiles.append("_")
             
-    def show(self):       
+    def show_tiles(self):       
         print("  ".join(self.tiles))
         
     def update(self, letter):
@@ -44,12 +44,12 @@ class Display:
 def main():
     display =Display()
     display.make_tiles()
-    display.show()
+    display.show_tiles()
     is_game = True
     while is_game:
         user = input("Make a guess: ")
         display.update(user)
-        display.show()
+        display.show_tiles()
     
 if __name__ == "__main__":
     main()
