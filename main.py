@@ -5,28 +5,37 @@ from words import Word
 """
 parachutes(5 wrong gueses) **Julie
     returns an image either wrong or right
+    func: parachute_stage
+    func: display_parachute
     
 word( **marcus
-    func: new_word  
+    func: get_word  
     func: check_guess(
-        if right: parachute
-                    display.update()
+        if right: return true
+        else: return false
                     
     )
 )
 display( **Rune
-    func: word_tiles(get lenght of new word to create the tiles)
-    func: word_display(
-        display parachute and the current_word tiles
+    func: make_tiles(get lenght of new word to create the tiles)
+    func: show_tiles(
+        display current_word tiles
     )
-    func: update
+    func: update(
+        update the tiles with the correct guessed letter
+    )
 )
 jumper( **lucas
-    score = 5
-    while loop
-    func: display
-    input
-    func: check_guess
+    init(
+        other classes would be initialised with requred variables
+    )
+    score = 4
+    func start game(
+        while loop
+    )
+    
+    func: correct_guess
+    func: user_input
     
 )
 
