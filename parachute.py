@@ -7,12 +7,12 @@ class Parachute:
     # The images are contained within an array called stages.
 
     def __init__(self):
-        parachute = Parachute
-        lives_remaining = 4
+        # Class constructor
+        self.lives_remaining = 4
     # #     self.display.update = False
 
     def get_is_correct(self):
-        display = Display
+        display = Display()
         is_correct = self.display.get_is_correct()
         if is_correct == False:
             return is_correct == False
