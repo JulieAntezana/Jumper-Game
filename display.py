@@ -9,47 +9,38 @@ class Display:
     
     """
     
-    def __init__ (self):
-        self.word = "umbrella"
-        self.word_list = list(self.word)
-        self.tiles = []
+    def __init__ (self, word):
+        self._word = word
+        self._word_list = list(self._word)
+        self._tiles = []
 
     def make_tiles(self):
-        for i in self.word:
-            self.tiles.append("_")
+        for i in self._word:
+            self._tiles.append("_")
             
     def show_tiles(self):       
-        print("  ".join(self.tiles))
+        print("  ".join(self._tiles))
         
     def update(self, letter):
         
-        if letter in self.word_list:
-            index = 0
-            for i in self.word_list:
-                if i == letter.lower():
-                    
-                    self.tiles[index] = letter
-                    index += 1
-                else:
-                    index += 1
-                    
-                    
-            
-        else:
-            print("failed attempt")
-            
-
         
+        index = 0
+        for i in self._word_list:
+            if i == letter.lower():
+                
+                self._tiles[index] = letter
+                index += 1
+            else:
+                index += 1
+                
+    def won(self):
+        count = 0
+        for i in self._tiles:
+            if i == "_":
+                count += 1
+        
+        if count == 0:
+            return True
+        else:
+            return False         
 
-def main():
-    display =Display()
-    display.make_tiles()
-    display.show_tiles()
-    is_game = True
-    while is_game:
-        user = input("Make a guess: ")
-        display.update(user)
-        display.show_tiles()
-    
-if __name__ == "__main__":
-    main()

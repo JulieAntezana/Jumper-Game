@@ -42,13 +42,16 @@ class Word:
             return "guessed"
         else:
             self._users_guess.append(letter)
+            return
             
             
+    def check_letter(self, letter):
+        
         if letter in self._new_word:
             return True
         
         else:
-            return False
+            return False       
 
     def get_word(self):
         return self._new_word
