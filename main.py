@@ -40,7 +40,8 @@ class Director:
         self.display = Display(self.current_word)
         self.parachute = Parachute()
         self.lives = user_lives()
-        self.parachute.display_parachute(self.lives.get_lives())
+        self.current_lives = self.lives.get_lives()
+        self.parachute.show_parachute(self.current_lives)
         self.display.make_tiles()
         self.display.show_tiles()
         print()
@@ -69,7 +70,7 @@ class Director:
             self.display.update_tiles(self.letter)
             self.display.show_tiles()
     
-            self.parachute.display_parachute(self.lives.get_lives())
+            self.parachute.show_parachute(self.current_lives)
             if self.display.won():
                 self.is_playing = False
                 self.play_again()
@@ -81,7 +82,7 @@ class Director:
             
             self.lives.subtract_lives()
             
-            self.parachute.display_parachute(self.lives.get_lives())
+            self.parachute.show_parachute(self.current_lives)
             if self.lives.lost():
                 print("The word is", self.current_word.upper())
                 self.is_playing = False
