@@ -7,6 +7,31 @@ from art import logo
 
 
 class Director:
+    """
+    This is the diirector class that handles the game control and communincates with the other classes.
+    
+    __init__:
+        This method creates objects from the other classes and call the necessary methods to begin the game
+        
+    start_game:
+        1. This method starts a loop that keeps running unitll tiles are completed or lives are finished
+        2. Makes sure the user doesnt guess one letter twice using another while loop.
+        
+    correct_guess:
+        This method checks:
+        1. if letter is correct, it calls for an update to tiles and checks if tiles are complete so the game can end
+        2. if letter is wrong, it deducts lives and then make display of relevant data
+        
+    play_again:
+        This method checks:
+        1. if user wants to play again, it starts the game all over
+            else:
+                send a goodbye message to the terminal
+                
+    user_input:
+        This method takes an input from the user and returns it
+    
+    """
      
     def __init__ (self):
         self.word = Word()
@@ -41,7 +66,7 @@ class Director:
         
         if self.check_letter:
             
-            self.display.update(self.letter)
+            self.display.update_tiles(self.letter)
             self.display.show_tiles()
     
             self.parachute.display_parachute(self.lives.get_lives())
@@ -54,7 +79,7 @@ class Director:
         else:
             self.display.show_tiles()
             
-            self.lives.subtract()
+            self.lives.subtract_lives()
             
             self.parachute.display_parachute(self.lives.get_lives())
             if self.lives.lost():
@@ -92,6 +117,8 @@ class Director:
 
 
 def main():
+    """Tis funtion starts the game play  using try to catch relevant errors
+    """
     try:
         print(logo)
         game = Director()

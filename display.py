@@ -1,11 +1,24 @@
-'''
-This is The file I will use '''
-
-
 
 class Display:
     """
     The display class will display the letters that are guessed
+    
+    __init__:
+        Attributes needed:
+            current word converted to list
+            tiles
+            
+    make_tiles:
+        This method makes the tiles displayed on the screen based on the amount of letters presesent in the word
+        
+    show_tiles:
+        This method prints out the tiles at whatever state it is at the moment
+        
+    update_tiles:
+        This method replaces the guessed letter in the tiles if present in the word. it also takes note if the letter appears multiple times
+        
+    won:
+        This method checks if the game is won by checking if there are any tiles left to complete, if none then it returns True
     
     """
     
@@ -21,7 +34,7 @@ class Display:
     def show_tiles(self):       
         print("  ".join(self._tiles))
         
-    def update(self, letter):
+    def update_tiles(self, letter):
         
         
         index = 0

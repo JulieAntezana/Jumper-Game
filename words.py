@@ -1,17 +1,6 @@
 from word_list import list
 import random
 
-"""
-    word( **marcus
-    func: new_word  
-    func: check_guess(
-        if right: parachute
-                    display.update()
-                    
-    )
-)
-"""
-
 class Word:
     """
     
@@ -25,9 +14,15 @@ class Word:
                 First If&else checks if the user has guessed the word before,
                     if so returns False
                 
-                
-                Second If&else checks if the letters are present in the current word to be guessed
-                    if present: it calls the display funtion with the letters that would be updates plus setting update to false
+        check_letter method:      
+             i      if the letter is present in the current word to be guessed:
+                            returns True
+                    else:
+                            returns False
+                            
+        get_word mothod:
+                    This method returns the current word to be guessed
+                    
     """
     
     
