@@ -11,7 +11,7 @@ class Parachute:
 
         self._stages = []
 
-    def display_parachute(self, lives):
+    def show_parachute(self, lives):
         print(self.parachute_stage()[lives])
 
     def parachute_stage(self):
