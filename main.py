@@ -72,6 +72,7 @@ class Director:
             self.parachute.show_parachute(self.lives.get_lives())
             if self.display.won():
                 self.is_playing = False
+                print("Yay! you won")
                 self.play_again()
                 
             
