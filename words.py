@@ -5,8 +5,8 @@ class Word:
     """
     
         init method:
-            This method initializes the class with an empty list to store the users guesses to prevent repeatition
-            It also initializes with a new word to be guessed for that particular round of game
+            This method initializes the class with an empty list to store the users guesses to prevent repetition
+            It also initializes with a new word to be guessed for that particular round of the game.
     
     
         check_guess method:
@@ -15,19 +15,18 @@ class Word:
                     if so returns False
                 
         check_letter method:      
-             i      if the letter is present in the current word to be guessed:
+             This boolean method checks if the guessed letter is present in the current word to be guessed:
                             returns True
                     else:
                             returns False
                             
-        get_word mothod:
+        get_word method:
                     This method returns the current word to be guessed
                     
     """
     
     
     def __init__(self):
-        
         self._users_guess=[]
         self._new_word = random.choice(list)
         

@@ -1,35 +1,34 @@
 from display import Display
 from parachute import Parachute
 from words import Word
-from lives import  user_lives
+from lives import Lives
 import os
 from art import logo
-
 
 class Director:
     """
     This is the diirector class that handles the game control and communincates with the other classes.
     
     __init__:
-        This method creates objects from the other classes and call the necessary methods to begin the game
+        This method creates objects from the other classes and calls the necessary methods to begin the game.
         
     start_game:
-        1. This method starts a loop that keeps running unitll tiles are completed or lives are finished
-        2. Makes sure the user doesnt guess one letter twice using another while loop.
+        1. This method starts a loop that keeps running until tiles are completed or lives are finished.
+        2. Makes sure the user doesn't guess one letter twice using another while loop.
         
     correct_guess:
         This method checks:
-        1. if letter is correct, it calls for an update to tiles and checks if tiles are complete so the game can end
-        2. if letter is wrong, it deducts lives and then make display of relevant data
+        1. If the letter is correct, it calls for an update to tiles and checks if tiles are complete so the game can end.
+        2. If the letter is wrong, it deducts one life and then displays relevant data.
         
     play_again:
         This method checks:
-        1. if user wants to play again, it starts the game all over
+        1. If user wants to play again, it starts the game all over.
             else:
-                send a goodbye message to the terminal
+                Sends a goodbye message to the terminal.
                 
     user_input:
-        This method takes an input from the user and returns it
+        This method takes an input from the user and returns it.
     
     """
      
@@ -39,8 +38,8 @@ class Director:
         self.is_playing = True
         self.display = Display(self.current_word)
         self.parachute = Parachute()
-        self.lives = user_lives()
-        self.parachute.show_parachute(self.lives.get_lives())
+        self.lives = Lives()
+        self.parachute.get_parachute(self.lives.get_lives())
         self.display.make_tiles()
         self.display.show_tiles()
         print()
@@ -49,8 +48,12 @@ class Director:
     def start_game(self):
         while self.is_playing:
 
-            self.guessed = self.word.check_guess(self.user_input())
-            
+            self.guessed = self.word.check_guess(self.user_input())   
+            while True:        
+                if self.guess.isalpha():
+                    break
+                print("Please enter characters a-z only")
+                self.guessed = self.word.check_guess(self.user_input()) 
             while self.guessed == "guessed":
                 print("You already guessed that letter")
                 self.guessed = self.word.check_guess(self.user_input())
@@ -69,20 +72,18 @@ class Director:
             self.display.update_tiles(self.letter)
             self.display.show_tiles()
     
-            self.parachute.show_parachute(self.lives.get_lives())
+            self.parachute.get_parachute(self.lives.get_lives())
             if self.display.won():
                 self.is_playing = False
-                print("Yay! you won")
-                self.play_again()
-                
-            
+                print("Yay! You won!")
+                self.play_again()           
             
         else:
             self.display.show_tiles()
             
             self.lives.subtract_lives()
             
-            self.parachute.show_parachute(self.lives.get_lives())
+            self.parachute.get_parachute(self.lives.get_lives())
             if self.lives.lost():
                 print("The word is", self.current_word.upper())
                 self.is_playing = False
@@ -95,7 +96,7 @@ class Director:
         ask_user = input("Do you want to play again? (y/n): ").lower()
         while ask_user not in options:
             print("Invalid entry, try again")
-            ask_user = input("Do you want to play again? (y/n): ")
+            ask_user = input("Do you want to play again? (y/n): ").lower()
             
         if ask_user == "y":
             os.system('cls||clear')
@@ -105,20 +106,13 @@ class Director:
             print()        
             return
             
-            
-            
-            
-
     def user_input(self):
-        self.guess = input("Guess a letter [a-z]: ")
+        self.guess = input("Guess a letter [a-z]: ").lower()
         self.letter = self.guess
         return self.guess
 
-        
-
-
 def main():
-    """Tis funtion starts the game play  using try to catch relevant errors
+    """Tis function starts the game play using try to catch relevant errors
     """
     try:
         print(logo)
@@ -130,7 +124,6 @@ def main():
         print(type(value_err).__name__, value_err, sep=": ")
         print(f"This {value_err} is not a valid input, \
             \nplease run the program again and try a valid number")    
-        
     
     # catch the filenotfounderror type
     except FileNotFoundError as not_found_err:
@@ -138,7 +131,7 @@ def main():
         print(f"The file  does not exist in this directory \
             \nRun the program again using a file name that exists")
         
-    # catch the permissionerror type    
+    # catch the permission error type    
     except PermissionError as perm_err:
         print(type(perm_err).__name__, perm_err, sep=": ")
         print(f"You do not have permission to open the file \

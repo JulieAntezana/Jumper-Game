@@ -1,4 +1,4 @@
-class user_lives:
+class Lives:
     """
     This class handles the users lives
     
@@ -20,7 +20,7 @@ class user_lives:
     """
     
     def __init__(self):
-        self._lives = 5       
+        self._lives = 6       
         
     def subtract_lives(self):
         self._lives-= 1
