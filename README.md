@@ -1,43 +1,51 @@
-# cse210-03
+Jumper Game
 
-"""
-parachutes(5 wrong guesses) **Julie
-    returns an image either wrong or right
-    function: parachute_stage
-    function: display_parachute
-    
-word( **Marcus
-    function: get_word  
-    function: check_guess(
-        if right: return true
-        else: return false
-                    
-    )
-)
-display( **Rune
-    function: make_tiles(get length of new word to create the tiles)
-    function: show_tiles(
-        display current_word tiles
-    )
-    function: update(
-        update the tiles with the correct guessed letter
-    )
-)
-jumper( **Lucas
-    init(
-        other classes would be initialized with required variables
-    )
-    score = 4
-    function start game(
-        while loop
-    )
-    
-    function: correct_guess
-    function: user_input
-    
-)
+There are old skydivers and bold skydivers,
+but there are no old, bold skydivers.
 
-Dylan to arrange into files
+- Jeff Wuorio -
 
+Overview
+Jumper is a game in which the player seeks to solve a puzzle by guessing the letters of a secret word one at a time.
 
-"""
+Rules
+Jumper is played according to the following rules.
+
+The puzzle is a secret word randomly chosen from a list.
+The player guesses a letter in the puzzle.
+If the guess is correct, the letter is revealed.
+If the guess is incorrect, a line is cut on the player's parachute.
+If the puzzle is solved the game is over.
+If the player has no more parachute the game is over.
+
+You can run the program from an IDE like Visual Studio Code. Start your IDE and the project folder. Select the main module inside the jumper game folder and click the "run" icon.
+
+## Project Structure
+
+---
+
+The project files and folders are organized as follows:
+
+```
+root (cse210-03)   (project root folder)
++-- art            (visual art for program)
++-- display         (specific game classes)
++-- lives           (specific game classes)
++-- parachute       (visual art for program)
++-- word_list       (data for the program)
++-- words           (specific game classes)
++-- __main__       (entry point for program)
++-- README.md           (general info)
+```
+
+## Required Technologies
+
+---
+
+- Python 3.8.0
+
+## Authors
+
+Marcus -- art, words, main, lives
+Julie -- parachute, lives, README
+Rune -- display
